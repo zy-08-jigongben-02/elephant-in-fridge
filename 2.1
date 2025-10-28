@@ -1,0 +1,33 @@
+1.
+#include<string>
+#include<iomanip>
+using namespace std;
+struct student{
+	string name;
+	double chinese;
+	double math;
+	double english;
+	double avg;
+};
+int main() {
+	int n;
+	cin >> n;
+	student* students = new student[n];
+	for (int i = 0;i <n ;i++)
+	{
+		cout << "请输入第" << i + 1 << "个学生的姓名 语文 数学 英语";
+		cin >> students[i].name >> students[i].chinese >> students[i].math >> students[i].english;
+		students[i].avg = (students[i].chinese + students[i].math + students[i].english) / 3;
+	}
+	for (int i = 0;i < n;i++) {
+		cout << left << setw(10) << students[i].name;
+		cout << right << setw(10) << fixed << setprecision(1) << students[i].chinese;
+		cout << right << setw(10) << fixed << setprecision(1) << students[i].english;
+		cout << right << setw(10) << fixed << setprecision(2) << students[i].avg;
+		if (students[i].avg >= 90)
+		{
+			cout <<setw(10)<< "excellent" << endl;
+		}
+	}
+	system("pause");
+}
